@@ -9,7 +9,9 @@ Repository for Vertx Application and modules
 5. Vertx-Deployment-App - Module to deploy Vertx Module(Verticles) using a json config file.
 
 # User-Page
-http://hostname:port/pages/users.html
+This page lists all the user for the application
+
+Url - http://hostname:port/pages/users.html
 
 # Build and Run
 Step 1 : mvn clean package
