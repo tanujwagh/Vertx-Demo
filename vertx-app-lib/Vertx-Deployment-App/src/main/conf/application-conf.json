@@ -1,0 +1,19 @@
+{
+  "http.port" : 8082,
+  "database.mock.consumer.address" : "database-mock-service",
+  "user.consumer.address" : "user-consumer-service",
+  "modules" : [
+  				{ 
+  					"type" : "standard",
+  					"class" : "com.mmsoft.vertx.orchestrator.Orchestrator"
+  				},
+  				{ 
+  					"type" : "worker",
+  					"class" : "com.mmsoft.vertx.databasemock.DatabaseMock"
+  				},
+  				{ 
+  					"type" : "worker",
+  					"class" : "com.mmsoft.vertx.user.User"
+  				}
+  ]
+}

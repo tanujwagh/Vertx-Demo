@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User - Messaging</title>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" role="main">
+    <div class="jumbotron">
+        <h1>User - Messaging</h1>
+    </div>
+    <div class="page-header">
+        <h1>Users</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody id="content">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        load();
+    });
+    function load() {
+        $("#content").children().remove();
+        $.ajax({
+            url: '/v1/api/users',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+            	$.each(data, function (key, val) {
+                    $("<tr><td class='col-md-4'>" + val.userId + "</td><td class='col-md-4'>" + val.userName + "</td><td class='col-md-4'>" + val.userEmail + "</td></tr>").appendTo("#content");
+                });
+            },
+            beforeSend: setHeader
+         });
+        function setHeader(xhr) {
+            xhr.setRequestHeader('KEY', 'ThisIsMyKey');
+         }
+    }
+</script>
+</body>
+</html>
