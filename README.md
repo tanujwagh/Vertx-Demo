@@ -2,7 +2,7 @@
 Repository for Vertx Application and modules
 
 # Module Description
-1. vert-app-lib - Parent Lib for all the child modules.
+1. vertx-app-lib - Parent Lib for all the child modules.
 2. Orchestrator - Module to serve REST Endpoint and HTML
 3. DatabaseMock - Module for Database Layer Mockup
 4. User - Module for User Modal
